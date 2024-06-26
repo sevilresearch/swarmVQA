@@ -6,6 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
+ThesisVQATemp\swarmVQA\Dataset\VQA_New_Dataset_Aerial.v1i.coco
+
 # Distribution / packaging
 .Python
 build/

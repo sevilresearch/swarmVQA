@@ -1,0 +1,7 @@
+yes
+Pickup, CargoTruck, SUV
+2
+3
+CargoTruck, SportsCar, SUV
+Pickup, CargoTruck
+no
