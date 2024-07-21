@@ -19,9 +19,9 @@ from torchvision import datasets, models
 
 import cv2
 
-sys.path.insert(1, r'C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQA\Dataset')
-sys.path.insert(2, r'C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQA\Model')
-sys.path.insert(3, r'C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQA\utils')
+sys.path.insert(1, r'C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQATemp\swarmVQA\Dataset')
+sys.path.insert(2, r'C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQATemp\swarmVQA\Model')
+sys.path.insert(3, r'C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQATemp\swarmVQA\utils')
 
 from utility import get_transforms
 
@@ -39,13 +39,9 @@ if torch.cuda.is_available():
     print(torch.cuda.get_device_name(device))
 
 
-
-
-
 def load_image():
 
-
-    path = r'C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQA\Dataset\VQA_New_Dataset_Aerial.v1i.coco\test\Screenshot-2024-04-24-135555_png.rf.4534a803bc6cdf5ebd3affdf9d6d61a1.jpg'
+    path = r'C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQATemp\swarmVQA\Dataset\VQA_New_Dataset_Aerial.v1i.coco\test\Screenshot-2024-04-24-135555_png.rf.4534a803bc6cdf5ebd3affdf9d6d61a1.jpg'
 
     image = cv2.imread(path)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -53,7 +49,7 @@ def load_image():
     
     return image.div(255)
 
-dataset_path = r'C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQA\Dataset\VQA_New_Dataset_Aerial.v1i.coco'
+dataset_path = r'C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQATemp\swarmVQA\Dataset\VQA_New_Dataset_Aerial.v1i.coco'
 
 coco = COCO(os.path.join(dataset_path, "test", "_annotations.coco.json"))
 categories = coco.cats
@@ -93,13 +89,14 @@ device = torch.device("cuda") # use GPU to train
 
 # Initialize model, recursively go over all modules and convert their parameters and buffers to CUDA tensors
 model = VQAModel(17, 17, 14).to(device)
-model.load_state_dict(torch.load(r'C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQA\src\model_vqa.pt'))
+model.load_state_dict(torch.load(r'C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQATemp\swarmVQA\src\model_vqa.pt'))
 model.to(device)
 
 img = load_image()
 question = torch.tensor(test_dataset.get_question_vector("How many red cars are there?"), dtype=torch.float32)
 
-
+#List of possible questions:
+#
 
 print(question.to(device))
 with torch.no_grad():

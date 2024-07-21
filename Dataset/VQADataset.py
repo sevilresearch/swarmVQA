@@ -73,7 +73,7 @@ class VQA(Dataset):
         return len(self.questions_and_answers)
     
     def _generate_question_vocab(self):
-      questions_and_answers = json.load(open(r"C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQA\Dataset\train_questions_and_answers.txt"))
+      questions_and_answers = json.load(open(r"C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQATemp\swarmVQA\Dataset\train_questions_and_answers.txt"))
       question_vocab = {}
       count = 0
       for text in questions_and_answers:
@@ -90,7 +90,7 @@ class VQA(Dataset):
       return question_vocab    
     
     def _generate_answer_vocab(self):
-      questions_and_answers = json.load(open(r"C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQA\Dataset\train_questions_and_answers.txt"))
+      questions_and_answers = json.load(open(r"C:\Users\Nathon Rayon\.conda\envs\VQATorch\ThesisVQATemp\swarmVQA\Dataset\train_questions_and_answers.txt"))
 
       answer_vocab = {}
       count = 0
@@ -166,72 +166,3 @@ class VQA(Dataset):
               question_vector[self.question_vocab[word.lower()]] += 1
       
       return question_vector
-
-# vqaDataset = VQA('VQA_New_Dataset_Aerial.v1i.coco', 'train', 'train_annotations.csv', 'train_questions_and_answers.txt')
-# print(vqaDataset[0])
-# questionDF = pd.read_csv(os.path.join('VQA_New_Dataset_Aerial.v1i.coco', 'test', 'test_annotations.csv'))
-
-# # questionDF = vqaDataset[0]
-# print(questionDF.head())
-# # questionDF = pd.DataFrame(questionDF['filename'].unique(), columns=['filename'])
-# # questionDF.columns = ['filename']
-# # print(len(questionDF['filename']))
-
-# grouped_df = questionDF.groupby('filename').agg({
-#     'class': lambda x: list(x), 
-# }).reset_index()
-
-# # print(grouped_df.head(50))
-
-# def create_questions(Class, Image_ID):
-#     #Creating types of questions for model
-#     questions = [
-#         (f'What vehicles are in this image?', ', '.join(list(set(Class)))),
-#         (f'How many cars are there?', str(len(Class))),
-#         (f'Is there a red car?', 'yes' if 'SportsCar' in Class else 'no'),
-#         (f'Is there a green car?', 'yes' if 'SUV' in Class else 'no'),
-#         (f'Is there a white car?', 'yes' if 'CargoTruck' in Class else 'no'),
-#         (f'Is there a yellow car?', 'yes' if 'Pickup' in Class else 'no'),
-#     ] 
-
-#     return (list(map(lambda x: x + (Image_ID,), questions)))
-
-
-
-# all_questions = []
-
-# for index, row in grouped_df.iterrows():
-#    all_questions += create_questions(row['class'], index)
-
-# # print(all_questions)
-
-
-# question_vocab = {}
-# count = 0
-# for text in all_questions:
-#    full_string = text[0]
-#    full_string = re.sub('\W+', ' ', full_string)
-# #    print(full_string)
-#    tokens = re.split(' ', full_string)
-#    tokens.remove('')
-# #    print(tokens)
-#    for token in tokens:
-#       if token.lower() not in question_vocab:
-#          question_vocab[token.lower()] = count
-#          count += 1
-# # print(question_vocab)
-
-
-
-# all_answers = list(set(map(lambda q: q[1], all_questions)))
-
-
-# with open('test_questions_and_answers.txt', 'w') as file:
-#     json.dump(all_questions, file)
-
-# # with open('questions_and_answers_test.txt', 'w') as file:
-# #     json.dump(all_questions_test, file)
-
-# with open('test_answers.txt', 'w') as file:
-#   for answer in all_answers:
-#     file.write(f'{answer}\n')

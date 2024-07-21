@@ -43,6 +43,7 @@ class VisionDataset(datasets.VisionDataset):
         image = cv2.imread(os.path.join(self.root, self.split, path))
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         return image
+    
     def _load_target(self, id):
         return self.coco.loadAnns(self.coco.getAnnIds(id))
     

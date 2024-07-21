@@ -71,11 +71,6 @@ def train_loop(model, optimizer, criterion, train_loader):
 
     for image, text, label in trainloader:
         count += 1
-
-
-
-
-        
         
         # get the inputs; data is a list of [inputs, labels]
         image, text, label =  image.to(device), text.to(device), label.to(device)
@@ -193,28 +188,6 @@ plt.show()
 
 model.eval()
 model.to(device)
-# num_correct = 0
-# num_samples = 0
-# predictions = []
-# answers = []
-
-# with torch.no_grad():
-#     for image, text, label in testloader:
-#         image, text, label =  image.to(device), text.to(device), label.to(device)
-#         probs = model.forward(image, text)
-
-#         _, prediction = probs.max(1)
-#         predictions.append(prediction)
-
-#         answer = torch.argmax(label, dim=1)
-#         answers.append(answer)
-
-#         num_correct += (prediction == answer).sum()
-#         num_samples += prediction.size(0)
-
-#     valid_acc = (f'Got {num_correct} / {num_samples} with accuracy {float(num_correct)/float(num_samples)*100:.2f}')
-#     print(valid_acc)
-
 
 torch.save(model.state_dict(), 'model_vqa1.pt')
 
