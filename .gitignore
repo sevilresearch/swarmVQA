@@ -7,6 +7,7 @@ __pycache__/
 *.so
 
 ThesisVQATemp\swarmVQA\Dataset\VQA_New_Dataset_Aerial.v1i.coco
+ThesisVQATemp\swarmVQA\Dataset\*.txt
 
 # Distribution / packaging
 .Python
