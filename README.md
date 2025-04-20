@@ -22,3 +22,11 @@ The console will show a red error like `WARNING:tornado.general:Connect error on
 program trying to connect to AirSim. Go over to Unreal Engine and click the play button in the top. This will load the JSON
 we defined earlier, and the simulation should run as expected!
 
+## Getting Started *(with VQA)*
+
+You must first make a Python client using version 3.9 in Visual Studio. Once this is configured, you can copy and paste the SwarmVQA package in the Python client.
+
+Everything is already trained and prepared. To run the program, you need to replace each path to each file with your own respective filepath. 
+
+Once this is done, run the program and enter the desired configuration and run press submit. Then go to your Unreal Engine environment that is setup with Airsim and press play.
+
