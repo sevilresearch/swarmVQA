@@ -1,0 +1,1 @@
+{"SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/master/docs/settings.md", "SettingsVersion": 1.2, "RpcEnabled": true, "SimMode": "Multirotor", "Vehicles": {"Drone1": {"VehicleType": "SimpleFlight", "EnableTrace": true, "X": 97, "Y": 25, "Z": -2, "Yaw": 90, "AllowAPIAlways": true}}}

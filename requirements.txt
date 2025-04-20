@@ -1,0 +1,17 @@
+Pillow
+numpy==1.22.1
+pandas~=1.3.2
+matplotlib
+pypiwin32
+pywin32
+airsim~=1.5.0
+squaternion~=0.3.2
+attrs
+albumentations==1.3.1
+pycocotools==2.0.6
+scikit_learn==1.3.0
+torch==2.2.1
+torchvision==0.17.1
+tqdm==4.65.0
+msgpack-rpc-python
+shapely
