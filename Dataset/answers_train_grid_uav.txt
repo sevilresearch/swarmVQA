@@ -1,0 +1,24 @@
+Old Man
+Commercial
+No cars.
+White
+Cargo Truck
+SUV
+Passenger
+7
+No people.
+6
+Hatchback
+Young Woman
+yes
+3
+1
+4
+5
+0
+no
+Young Man
+Blue
+Old Woman
+Green
+2
